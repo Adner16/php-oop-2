@@ -5,7 +5,7 @@ class Products {
     public $barCode;
     public $price;
     public $discount;
-    public $finalPice;
+    public $finalPrice;
 
     function __construct($name, $barcode, $price){
         $this->name = $name;
@@ -20,7 +20,7 @@ class Products {
     }
     public function getPrice(){
          $this->finalPrice = $this->price *(1 - ($this->discount/100));
-         return $this->finalPice;
+         return $this->finalPrice;
     }
     
 }
@@ -49,6 +49,13 @@ class Customer {
     public $lastName;
     public $age;
     public $sex;
+    public $subscription;
+    public function Buy($CreditCard, $Products){
+        if ($subscript == true){
+            $this->saldo -= $this->finalPrice; 
+            return $this->saldo;
+        }
+    }
 
     function __construct($name, $lastname, $age, $sex){
         $this->name = $name;
@@ -58,11 +65,12 @@ class Customer {
     }
 }
 
-class CreditCard {
+class CreditCards {
     public $ownerName;
     public $ownerLastName;
     public $code;
     public $deadLine;
+    public $saldo;
 
     function __construct($ownerName, $ownerLastName, $code, $dealine){
         $this->ownerName = $ownerName;
